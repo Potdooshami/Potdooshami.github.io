@@ -7,3 +7,5 @@ this is display and following is $x+y$
 크램다운 매스엔진 바꿔봤다
 
 진짜 최우의 발악... 이건 진짜 shit이다
+
+발악2
