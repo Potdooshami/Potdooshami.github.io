@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manifold</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            /* font-family: Arial, sans-serif; */
+            margin: 20px;
+  
+        }
+        h1 {
+            /* font-size: 1.5em; */
+            color : #14128f;
+            margin: 30px 0;
+            border-bottom: 1px solid #a8a8a8;
+        }
+        h2 {
+            /* font-size: 1.2em; */
+            margin: 10px 0;
+        }
+        h3 {
+            /* font-size: 1em; */
+            margin: 10px 0;
+        }
+        h4 {
+            /* font-size: 0.8em; */
+            margin: 10px 0;
+        }
+        p {
+            margin: 10px 0;
+        }
+        ol {
+            margin: 10px 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+        .definition::before {
+            content: "Definition";
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            border-bottom: 1px solid #a8a8a8;
+
+        }
+        .definition {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #a8a8a8;
+            background-color: #f8f8f8;            
+        }
+    </style>
+</head>
+<body>
+    <h1>Motivation</h1>
+    <h2>선수강 과목으로서의 일반 위상수학</h2>    
+    <p>물리학도 입장에서 일반 위상수학 공부하는 게 좀 고역이다. 
+        사실 필요한 건 "일반 위상수학"이 아니라 그 다음에 배울 "대수적 위상수학", "미분 기하학", "리만 기하학"이다.
+        그런데 일반 위상수학이 뒷 과목의 선수강 과목이다.
+        그래서 공부를 안 할 수가 없다.
+        일반 위상수학 공부를 힘들게 하는 건 일단 분량이 너무 방대하다.
+        그리고, 수학적인 정의와 개념이 너무 어렵다.
+        보통 물리학도는 물리학의 많은 typical examples를 통해 수학을 이해하는데,
+        위상수학은 그런 typical examples가 없다.
+        아무튼 중요한데, 할 일은 많고 일은 고되다.
+    </p>
+    <h2>물리학에서 등장하는 다양체</h2>
+<p>
+    상대성 이론, 대수적 위상수학, 리 대수 등에서 계속 나오는 다양체가 무엇일까? 
+    직관적으로는 국소적으로 유클리드 공간과 비슷하게 근사할 수 있는 공간으로 이해하고 있다.
+    보통 물리학 책에서는 이정도로 이해하고 우리가 다뤄야할 물리 세계로 넘어가지만,
+    나는 타고나길 직관이 부족해서 그런지 이게 잘 안 통한다. 
+</p>
+<h2>다양체의 엄밀한 정의를 이해해 보자</h2>
+<p>
+    일단 다양체를 알면 당장 적용할 수 있는 물리학 예제가 많다. 
+    그리고 다양체의 엄밀한 정의를 아는 것 많으로 일반 위상수학의 70퍼센트 정도를 커버할 수 있게 된다.
+    동기부여는 충분할테고 이제 다양체의 엄밀한 정의를 봐보자.
+</p>
+<h1>Definition</h1>
+<div class="definition">
+    <p>
+        위상공간 \( \left ( X,\mathcal{T} \right ) \)가 아래의 세 조건을 만족하면, 다양체라고 한다.
+    </p>
+    <ol>
+        <li>
+            \( \left ( X,\mathcal{T} \right ) \)는 하우스도르프이다.
+        </li>
+        <li>
+            \( \left ( X,\mathcal{T} \right ) \)는 제 2가산이다.
+        </li>
+        <li>
+            \( \left ( X,\mathcal{T} \right ) \)의 모든 점이 \(\mathbb{R}^n \)의 열린집합과 위상동형인 근방을 가진다.
+        </li>
+    </ol>
+</div>  
+
+
+<h1>알아보자</h1>
+<h2>위상공간</h2>
+<div class = "definition">
+    <p>
+        집합 \(X\)와 \(X\)의 부분집합들의 모임 \(\mathcal{T}\)가 주어졌을 때, 아래의 세 조건을 만족하면 \(\left(X,\mathcal{T}\right)\)를 위상공간이라고 한다.
+    </p>
+    <ol>
+        <li>
+            \(X\)와 \(\emptyset\)는 \(\mathcal{T}\)의 원소이다.
+        </li>
+        <li>
+            \(\mathcal{T}\)의 임의의 원소들의 가산 합집합은 \(\mathcal{T}\)의 원소이다.
+        </li>
+        <li>
+            \(\mathcal{T}\)의 임의의 원소들의 유한 교집합은 \(\mathcal{T}\)의 원소이다.
+        </li>
+</div>
+<h3>점, 열린집합</h3>
+<p class="definition">\(\mathcal{T}\)의 원소를 "열린집합",<br>\(X\)의 원소를 "점" 이라고 한다. </p>
+
+<h2>위상동형</h2>
+<div class = "definition">
+    <p>
+        위상공간 \( \left ( X,\mathcal{T} \right ) \)와 \( \left ( Y,\mathcal{S} \right ) \)가 주어졌을 때, 함수 \( f:X\rightarrow Y \)가 아래의 두 조건을 만족하면 위상동형이라고 한다.
+    </p>
+    <ol>
+        <li>
+            \( f \)는 일대일이고 연속이다.
+        </li>
+        <li>
+            \( f^{-1} \)도 연속이다.
+        </li>
+    </ol>
+</div>
+<p>연속의 정의를 알아야 할 필요가 있다.</p>
+<h3>연속</h3>
+<div class = "definition">
+    <p>
+        위상공간 \( \left ( X,\mathcal{T} \right ) \)와 \( \left ( Y,\mathcal{S} \right ) \)가 주어졌을 때, 함수 \( f:X\rightarrow Y \)가 아래의 조건을 만족하면 연속이라고 한다.
+    </p>
+    <p>
+        임의의 \( Y \)의 열린집합 \( V \)에 대해, \( f^{-1}\left( V \right) \)는 \( X \)의 열린집합이다.
+    </p>
+</div>
+
+<h2>근방</h2>
+<p class = "definition">
+    \(\mathcal{N} \)이 점 \( p \)의 근방이다. 
+    \(\Leftrightarrow \) 
+    \( \exists O \in \mathcal{T}\left( p \in O   \subset \mathcal{N} \subset X \right)\)
+</p>
+<p>Def</p>
+<h2>제 2가산</h2>
+<p>Def</p>
+<h3>가산 기저</h3>
+<h4>기저</h4>
+<h3>가산 공리</h3>
+<h3>제 1가산</h3>
+<h3>제 2가산은 제1가산이다</h3>
+<h2>하우스도르프</h2>
+<p>Def</p>
+<h3>콜모고로프 분류</h3>
+\(xyz\)
+
+
+</body>
+</html>
+</html>
