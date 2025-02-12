@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dirac Equation Example</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <h1>선형변환</h1>
+    <p>
+        벡터공간\(V\),\(W\)가 있다고 하자. 
+        이때 선형변환\(L\in\mathfrak{L}(V,W)\)는 \(V\to W\)인 
+        <ruby> <rb>homomorphism</rb> <rp>(</rp> <rt>준동형사상</rt> <rp>)</rp> </ruby>이다. 
+        선형변환 \(L\) 행렬로 표현하고싶다. 
+        이는 벡터\(v\in V=\left<\mathfrak{B}\right>\)를 
+        벡터의 좌표\(\left[ v\right]_\mathfrak{B}\)로 표현하는 것과 비슷하지만 
+        출발하는 쪽의 기저, 도착하는 쪽의 기저 2개가 필요하다. 아무튼 행렬로 표현하면    
+        \[
+        \left[ L\right]_\mathfrak{C}^\mathfrak{B}
+        \]
+        \(\left[ L\right]_{\mathfrak{C}}^{\mathfrak{B}}\)로 표현한다.
+
+\(\left[ L\right]_{\mathfrak{C}}^{\mathfrak{B}}\)의 크기는 \(\dim W,\dim V\) 이고 연산은 다음과 같이 정의된다.
+
+\(\left[L( v)\right]{\mathfrak{C}}=\left[ L\right]{\mathfrak{C}}^{\mathfrak{B}} \left[ v\right]_{\mathfrak{B}}\)
+
+첨자의 순서에 유의하도록 하자. 출발하는 쪽이 윗첨자, 도착하는 쪽이 아랫첨자이다.
+    </p> 
+    
+    <h1>Active transformation & Passive transformation</h1>
+    <p>
+        이제부터 
+        \[L\in\mathfrak{L}(V,V)\]
+        즉 
+        <ruby> <rb>Endomorphism</rb> <rp>(</rp> <rt>자기사상</rt> <rp>)</rp> </ruby>
+        이면서  
+        <ruby> <rb>Isomorphism</rb> <rp>(</rp> <rt>동형사상</rt> <rp>)</rp> </ruby>인 
+        <ruby> <rb>Automorphism</rb> <rp>(</rp> <rt>자기동형사상</rt> <rp>)</rp> </ruby>인 
+        경우를 고려해보자. 선형변환의 행렬 표현은 다음과 같을 것이다.
+
+\[\left[ L(v)\right]_{\mathfrak{B}}=\left[ L\right]_{\mathfrak{B}}^{\mathfrak{B}}\left[ v\right]_{\mathfrak{B}}\]
+
+지금까지는 하나의 벡터 공간에는 하나의 기저만을 고려했지만, 이제부터는 다양한 기저를 다루는 경우를 이야기 해보자. 다양한 기저를 다루면서 헷갈리기 시작하는 점 중 하나가 기저에 따라 선형변환이 다르게 표현된다는 점이다. 
+
+\[\left[ L\right]_{\mathfrak{B}}^{\mathfrak{B}}\neq\left[ L\right]_{\mathfrak{B'}}^{\mathfrak{B'}}\neq\left[ L\right]_{\mathfrak{B''}}^{\mathfrak{B''}}\]
+
+행렬과 선형변환을 잘 구분 못하는 상태에서 코딩을 하다보면 자주 발생하는 재앙이 있는데,
+
+\[\left[ L(v)\right]_{\mathfrak{B}}=?\left[ L\right]_{\mathfrak{B'}}^{\mathfrak{B'}}\left[ v\right]_{\mathfrak{B}}\]
+
+보통 코딩을 하면 선형 변환을 `v_=T*v` 정도로 표현을 하는데, 기저를 명시적으로 적지 않아서 틀린다. 컴퓨터는 구문(syntax)만 맞으면 의미(sementics)는 생각하지 않고 실행할테고 출력된 결과를 보고 디버깅을 할 것이다. 더 일반적으로는 출발(윗첨자) 기저와 도착 기저(아래첨자)가 같을 필요도 없다. 가령 \(\left[ L\right]_{\mathfrak{B'}}^{\mathfrak{B}}\) 같은 행렬표현식도 가능하다.  선형변환 \(I(v)=v\)에 대해 다른 기저를 사용하면 우리가 익히 아는 기저 변환 행렬이 된다.
+
+\[\left[ v\right]_{\mathfrak{B'}}=\left[ I\right]_{\mathfrak{B'}}^{\mathfrak{B}}\left[ v\right]_{\mathfrak{B}}\]
+
+만약 \(\left[ L\right]_{\mathfrak{B'}}^{\mathfrak{B}}\) 같은 행렬 표현이 필요하다면
+
+\[\left[ L\right]_{\mathfrak{B'}}^{\mathfrak{B}}=\left[ I\right]_{\mathfrak{B'}}^{\mathfrak{B}}\left[ L\right]_{\mathfrak{B}}^{\mathfrak{B}}\]
+
+change of basis 행렬, 동일기저로 표현된 선형변환 행렬의 곱으로 표현해주자. 추가적으로 다음과 같은 경우를 생각해보자. 도착기저가 기저의 선형변환과 동일하다면? 항등 행렬이 될 것이다.
+
+\[\left[ L\right]_{L(\mathfrak{B})}^{\mathfrak{B}}=\left[ L\right]_{L(\mathfrak{B'})}^{\mathfrak{B'}}=\left[ L\right]_{L(\mathfrak{B''})}^{\mathfrak{B''}}=I_M\]
+
+출발기저와 도착기저가 다른 선형 변환이 있다면 우리가 해주고 싶은 건 뭐다? 기저변환행렬과, 동일기저표현행렬로 쪼개주는 것이다.
+
+\[\left[ L\right]_{L(\mathfrak{B})}^{\mathfrak{B}}=\left[ I\right]_{L(\mathfrak{B})}^{\mathfrak{B}}\left[ L\right]_{\mathfrak{B}}^{\mathfrak{B}}=I_M\]
+
+\[\left[ I\right]_{L(\mathfrak{B})}^{\mathfrak{B}}\left[ L\right]_{\mathfrak{B}}^{\mathfrak{B}}\left[ v\right]_{\mathfrak{B}}=\left[ I\right]_{L(\mathfrak{B})}^{\mathfrak{B}}\left[ L(v)\right]_{\mathfrak{B}}=\left[ L(v)\right]_{L(\mathfrak{B})}\]
+
+여기서 passive transformation과 active transformation의 개념이 나온다.
+
+\[\left[ I\right]_{L(\mathfrak{B})}^{\mathfrak{B}}=\left[ L^{-1}\right]_{\mathfrak{B}}^{\mathfrak{B}}\]
+
+좌변의 의미는 \(\mathfrak{B}\)좌표계에서 \(L(\mathfrak{B})\)좌표계로 다시 바꾼다는 의미고
+
+\[\left[ v\right]_{L(\mathfrak{B})}=\left[ I\right]_{L(\mathfrak{B})}^{\mathfrak{B}}\left[ v\right]_{\mathfrak{B}}\]
+
+우변은 좌표계는 동일하지만 벡터 자체가 바뀐다. 즉
+
+\[\left[ L^{-1}(v)\right]_{\mathfrak{B}}=\left[ L^{-1}\right]_{\mathfrak{B}}^{\mathfrak{B}}\left[ v\right]_{\mathfrak{B}}\]
+
+여기서 또 다른 놀라운 결과
+
+\[\left[ v\right]_{L(\mathfrak{B})}=\left[ L^{-1}(v)\right]_{\mathfrak{B}}\]
+
+
+
+
+    </p>
+
+
+
+    
+</body>
+

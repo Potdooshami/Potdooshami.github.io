@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaTeX with MathJax</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <h1>러셀의 역설</h1>
+    <p>
+        다음과 같은 집합을 생각해보자
+        \[
+        y=\{x|x\notin x\}
+        \]
+        집합\(y\)가 자기 자신에 속하는지 생각해보자.
+        가능성은 "1번 \( y \in y \)" 아니면 "2번 \( y \notin y \)"일 것이다.
+    </p>
+    <h2>1번의 경우</h2>            
+        <p>
+            1번이라고 가정하면 가정에 따라 \( y \in y \)이고, 그러면 원소의 조건\( x \notin x \)에 의해 \( y \notin y \)이다. 따라서 1번은 모순이다.
+        </p>
+        
+    <h2>2번의 경우</h2>
+    <p>
+        2번이라고 가정하면 가정에 따라 \( y \notin y \)이다. 그런데 원소의 조건\( x \notin x \)에 따르면 \( y \in y \)이여야한다. 따라서 2번도 모순이다.
+    </p>        
+    <h2>결론</h2>
+    <p>
+        집합\(y\)는 정의될 수 없다.         
+    </p>
+    <h2>그냥 이런 집합을 정의 안 하면 안 됨?</h2>
+    <p>
+        이런 괴상한 집합을 무시하면 될 일 아닌가? 
+        하지만 이 역설은 기존 집합론의 공리 체계에 결함이 있음을 시사했다. 
+        기존의 Naive Set Theory는 무엇이 집합의 자격이 있는지를 명확히 정의하지 않았다.
+        따라서 새로운 공리 체계를 기반으로 하는 집합론의 필요성이 대두되었다.
+        이를 Axiomatic Set Theory라고 한다.
+    </p>
+    <iframe
+     width="600" 
+     height="371" 
+     seamless 
+     frameborder="0" 
+     scrolling="no" 
+     src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSoR7Y1kS4RD96Q-su5fjAw1Nvb5RGzSYhDF1KyK8scOfinHsjnQXnjVYj6H-RrFLJuwu8-wAMi0O8-/pubchart?oid=1117636837&amp;format=interactive">
+    </iframe>
+</body>
+</html>
