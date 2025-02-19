@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<body>
+    <p>
+        We want to change affine bases form \( (o,\mathfrak{B}) \) to \( (o',\mathfrak{B}') \)
+        \[p_a,p_b,p_c,p_a',p_b',p_c'\in P \]
+        \[\Delta_a,\Delta_b,\Delta_c \in V\]
+        \[p'_a = p_a +\Delta_a\]
+        \[p'_b = p_b +\Delta_b\]
+        \[p'_c = p_c +\Delta_c\]
+        <hr>
+        \[
+        [p_{abc}]_{(o,\mathfrak{B})}=
+        \begin{bmatrix}
+        [p_a]_{(o,\mathfrak{B})}&  
+        [p_b]_{(o,\mathfrak{B})}&  
+        [p_c]_{(o,\mathfrak{B})}
+        \\
+        1&  1&1 
+        \end{bmatrix}
+        \]
+
+        \[
+        [\Delta_{abc}]_{\mathfrak{C}}=
+        \begin{bmatrix}
+        [\Delta_a]_{\mathfrak{C}}&  
+        [\Delta_b]_{\mathfrak{C}}&  
+        [\Delta_c]_{\mathfrak{C}}
+        \\
+        0&  0& 0 
+        \end{bmatrix}
+        \]
+        \[
+        [p_{abc}]_{(o,\mathfrak{B})},[\Delta_{abc}]_{\mathfrak{B}} \in \mathfrak{M}_{3,3}
+        \]
+        <hr>
+        \[
+        [p_{abc}']_{(o',\mathfrak{B}')}=[p_{abc}]_{(o,\mathfrak{B})}
+        \]
+        \[
+        [p_{abc}']_{(p,\mathfrak{C})}=[p_{abc}]_{(p,\mathfrak{C})} + [\Delta_{abc}]_{\mathfrak{C}}
+        \]
+        <hr>
+        \[
+        \begin{align*}
+        [p_{abc}']_{(p,\mathfrak{C})}         &= [I]^{(o',\mathfrak{B}')}_{(p,\mathfrak{C})} \cdot [p_{abc}']_{(o',\mathfrak{B}')} \\
+        &= [I]^{(o',\mathfrak{B}')}_{(p,\mathfrak{C})} \cdot [p_{abc}]_{(o,\mathfrak{B})}
+        \end{align*} 
+        \]
+        \[
+        \begin{align*}
+        [I]^{(o',\mathfrak{B}')}_{(p,\mathfrak{C})} \cdot [p_{abc}]_{(o,\mathfrak{B})}  
+        &= [p_{abc}]_{(p,\mathfrak{C})} + [\Delta_{abc}]_{\mathfrak{C}} \\
+        &= [I]^{(o,\mathfrak{B})}_{(p,\mathfrak{C})} \cdot [p_{abc}]_{(o,\mathfrak{B})}   + [\Delta_{abc}]_{\mathfrak{C}} \\
+        \end{align*}
+        \]
+        <hr>
+        \[
+        [I]^{(o',\mathfrak{B}')}_{(p,\mathfrak{C})}
+         = ([I]^{(o,\mathfrak{B})}_{(p,\mathfrak{C})} \cdot [p_{abc}]_{(o,\mathfrak{B})}   + [\Delta_{abc}]_{\mathfrak{C}}) \cdot [p_{abc}]_{(o,\mathfrak{B})}^{-1}
+        \]
+    </p>
+</body>
+</html>
