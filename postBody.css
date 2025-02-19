@@ -1,0 +1,8 @@
+body {
+    /* font-family: Arial, sans-serif; */
+    
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px; /* 상하 패딩 0, 좌우 패딩 20px */
+
+}
