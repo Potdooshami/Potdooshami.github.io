@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>reciprocalSpaceConvention</title>
+</head>
+<body>
+    <h1>Motivation</h1>
+    <p>
+        original bases ,dual bases ,reciprocal bases, reduced-normal bases 에 대한 용어정리가 필요할 것 같다.
+        편의상 3차원 유클리드 공간에서 논의하도록 한다.
+    </p>
+    <h2>original bases</h2>
+    <p>
+        \[
+    \mathfrak{A} = \{ a_1, a_2, a_3 \} \subset V
+    \]
+        original 이란 표현은 붙여도 그만 말아도 그만. dual, reciprocal, reduced-normal 는 original 에 대한 변형이라는 것을 강조하고 싶을 때 주로 original을 붙여주자
+    </p>
+    
+    <h2>dual bases</h2>
+    <p>
+        \[
+        \mathfrak{A}^* = \{ a_1^*, a_2^*, a_3^* \} \subset V^*
+        \]
+        선형대수학에서의 쌍대공간 개념이다.
+        \[
+        a_i^*(a_j) = \delta_{ij}
+        \]
+        original basis \( \mathfrak{B}\)와는 다른 벡터공간에 있다는 사실에 주목해라.<br>
+        가령, \(a_1+a_2,a_1^*+a_2^*\)는 가능해도, \(a_1+a_1^*\)는 불가능하다.<br>
+        3차원 유클리드 공간에서는 dual basis를 쉽게 구할 수 있는데,
+        \[
+        a_1^* = \frac{a_2 \times a_3}{a_1 \cdot (a_2 \times a_3)}\cdot, 
+        a_2^* = \frac{a_3 \times a_1}{a_1 \cdot (a_2 \times a_3)}\cdot, 
+        a_3^* = \frac{a_1 \times a_2}{a_1 \cdot (a_2 \times a_3)}\cdot
+        \]
+        마지막에 있는 내적 기호\(\cdot\)를 빼먹지 마라<br>
+        dual basis 의 매우 좋은 성질 중 하나는, dual basis의 dual basis(즉 double dual basis)가 original basis가 된다는 것이다. 즉
+        \[
+        (\mathfrak{A}^*)^* = \mathfrak{A} 
+        \]
+        이 성질 때문에, reciprocal basis와 reduced-normal basis를 dual basis를 이용하여 정의하는 게 편리하다.
+    </p>
+    <h2>reciprocal basis</h2>
+    <p>
+        \[
+        \mathfrak{B} = \{ b_1, b_2, b_3 \} \subset V^*
+        \]
+        reciprocal basis는 결정학에서 나온 개념이다. dual basis와 마찬가지로 듀얼공간에 속한다.
+        \[
+        b_1 = 2\pi a_1^*, 
+        \]
+        \[
+        b_2 = 2\pi a_2^*, 
+        \]
+        \[
+        b_3 = 2\pi a_3^*
+        \]
+        \(2\pi\)를 곱하는 이유는, 푸리에 변환에 의한 관습이다.
+    </p>
+    
+    <h2>reduced-normal basis</h2>
+    <p>
+        reduced-normal basis라는 말은 내가 작명한 것이다. 
+        \[
+        \mathfrak{A}^{\perp} = \{ a_1^{\perp}, a_2^{\perp}, a_3^{\perp} \} \subset V
+        \]
+        reduced-normal basis는 original vector space의 원소이다. original basis를 두 개의 성분으로 분해한 것인데
+        \[
+        a_1 = a_1^{\perp} + a_1^{\parallel}
+        \]
+        \(a_1^{\perp}\)  는 \(a_2 \times a_3\)이 만드는 평면과 수직인 성분이고, \(a_1^{\parallel}\)는 평행한 성분이다.
+        \[
+        a_1^{\perp} = \frac{a_1^*}{|a_1^*|^2}, 
+        \]
+        \[
+        a_2^{\perp} = \frac{a_2^*}{|a_2^*|^2}, 
+        \]
+        \[
+        a_3^{\perp} = \frac{a_3^*}{|a_3^*|^2}
+        \]
+    </p>
+</body>
+</html>
